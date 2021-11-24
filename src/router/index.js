@@ -2,7 +2,7 @@
  * @Author: web.范庆龙
  * @Date: 2020-04-26 10:40:48
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-11-15 17:39:29
+ * @LastEditTime: 2021-11-24 14:59:05
  * @Description: file content
  */
 import Vue from 'vue';
@@ -61,7 +61,6 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
     // 开启进度条
     NProgress.start();
-    console.log(to.path == "/login" || to.path == '/signInPage');
     if (to.path == "/signInPage" || to.path == '/login') {
         next();
     } else {

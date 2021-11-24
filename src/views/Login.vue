@@ -4,7 +4,7 @@
  * @Author: 范庆龙
  * @Date: 2020-06-25 12:09:53
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-11-15 18:08:33
+ * @LastEditTime: 2021-11-24 15:30:39
 -->
 <template>
   <div id="login" class="position-r" width="100%" height="100%" v-loading="loading" />
@@ -42,22 +42,33 @@ export default {
       }
       return treeData;
     },
+    getChildrenId(treeData) {
+      for (let i = 0; i < treeData.length; i++) {
+        const item = treeData[i];
+        if (item.disabled) {
+          continue;
+        }
+        if (item.children) {
+          return this.getChildrenId(item.children);
+        } else {
+          return item.id;
+        }
+      }
+    },
     async getMenu(nomalMenu) {
       let children = nomalMenu;
       this.$store.dispatch('setNomalMenu', children); //先获取所有菜单
-      this.$store.dispatch('setDefaultActiveHorizontalMenu', children[0].id);
+
+      this.$store.dispatch('setDefaultActiveHorizontalMenu', this.getChildrenId([children[0]])); //横向菜单选中
+      let arr = findData.findParentArr(this.getChildrenId([children[0]]), findData.treeLevel(children), children);
       if (children && children[0].children) {
-        let arr = findData.findParentArr(children[0].children[1].id, findData.treeLevel(children), children);
-        this.$store.dispatch('setBreadcrumb', arr); //面包屑
         this.$store.dispatch('setSideMenu', children[0].children);
-        this.$store.dispatch('setDefaultActiveMenu', children[0].children[1].id);
-        // this.$store.dispatch("setLayoutTag", [children[0].children[1]]); //面包屑
       } else {
-        let arr = findData.findParentArr(children[0].id, findData.treeLevel(children), children);
-        this.$store.dispatch('setBreadcrumb', arr); //面包屑
         this.$store.dispatch('setSideMenu', [children[0]]);
-        this.$store.dispatch('setDefaultActiveMenu', children[0].id);
       }
+      this.$store.dispatch('setBreadcrumb', arr); //面包屑
+      this.$store.dispatch('setDefaultActiveMenu', this.getChildrenId([children[0]])); //侧边选中
+
       this.$router.push({
         path: './index',
         redirect: {

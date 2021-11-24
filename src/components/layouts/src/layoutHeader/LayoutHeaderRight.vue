@@ -142,7 +142,7 @@ export default {
     },
     handleCommand(command) {
       if (command == '4') {
-        this.$router.push('/login');
+        this.$router.push('/signInPage');
       }
     },
   },

@@ -3,7 +3,7 @@
  * @Description: 
  * @Author: 李大玄
  * @Date: 2021-10-25 17:54:58
- * @FilePath: /newUi/src/router/overAll.js
+ * @FilePath: /admin-website-vue2/src/router/overAll.js
  */
 const err401 = r =>
     require.ensure([], () => r(require("@/views/error/err401.vue")), "home");
@@ -52,7 +52,7 @@ export default [
     {
         path: '/',
         redirect: {
-            name: 'signInPage',
+            name: 'vueBlog',
         },
     },
     {

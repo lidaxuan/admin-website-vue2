@@ -1,22 +1,19 @@
 <template>
-  <div class="layout flex jc-between position-r" height="100%">
+  <div class="layout flex jc-between" height="100%">
     <el-container class="overflow-y-a position-r layout-container position-a" :style="styleObj" width="100%" height="100%">
       <el-aside class="position-r overflow-i layout-elaside" :width="isCollapseShow ? '65px' : '235px'">
-        <div class="br-1 layout-aside">
+        <div class="br-1 hmax layout-aside flex flex-column">
           <div class="h-68 layout-aside-box" width="100%">
-            <div :class="['layout-aside-boxIcon position-r', 'h-66 flex ai-center', 'pl-15', isCollapse ? 'w-48' : 'w-219']">
-              <icon-class icon-class="icon-A-A1" font="28" color="var(--layoutBeacon)" />
+            <div :class="['layout-aside-boxIcon', 'h-66 flex ai-center', 'pl-15', isCollapse ? 'w-48' : 'w-219']">
+              <!-- <icon-class icon-class="icon-A-A1" font="28" color="var(--layoutBeacon)" />
               <div align="center" :class="['position-a mt-5', isCollapse ? '' : 'pl-12']" v-if="!isCollapse">
                 <div font-weight="600" class="w-95" font="18">BEACON</div>
                 <div font-weight="600" font="12" style="transform: scale(0.51); margin-top: -4px">EASYLIAO TECHNOLOGY</div>
-              </div>
+              </div> -->
+              <img src="@/assets/img/logo.png" class="" style="width: 100%" alt="" />
             </div>
           </div>
-          <!--                    <div class="h-38" v-if="layoutSetting.tag.value=='1'" style="background-color: #ffffff">-->
-          <!--                        <div :style="{width: isCollapse?'calc(100% - 16px)':'calc(100% - 12px)'}" style="-->
-          <!--    border-right: 1px solid rgba(21, 34, 50, 0.08);" height="100%"></div>-->
-          <!--                    </div>-->
-          <LayoutSide class="overflow-y-a overflow-x-h layout-menu" :isCollapse="isCollapse" height="100%" />
+          <LayoutSide class="overflow-y-a overflow-x-h layout-menu flex-1 wmax" :isCollapse="isCollapse" />
         </div>
         <!-- 折叠按钮 -->
         <div class="layout-aside-collapse position-a" @click="collapseChage">
@@ -25,23 +22,23 @@
           </div>
         </div>
       </el-aside>
-      <el-main class="p-0 position-r overflow-h" height="100%">
-        <el-header class="layout-nav h-68 position-a" width="100%">
-          <LayoutHeader @setting="settingFun" />
-        </el-header>
-        <layout-tag
-          v-model="defaultValue"
-          :tags-list="tagsList"
-          @tabClick="tabClick"
-          @closeAll="closeAll"
-          @closeCru="closeCru"
-          @lrClose="lrClose"
-          v-if="layoutSetting.tag.value == '1'"
-        ></layout-tag>
-        <div
-          class="layout-main plr-24 pb-24 overflow-a position-r mt-68 pt-32"
-          :style="layoutSetting.tag.value == '1' ? 'height: calc(100% - 107px)' : 'height: calc(100% - 68px)'"
-        >
+      <el-main class="p-0 overflow-h flex flex-column" height="100%">
+        <div>
+          <el-header class="layout-nav h-68" width="100%">
+            <LayoutHeader @setting="settingFun" />
+          </el-header>
+          <layout-tag
+            v-model="defaultValue"
+            :tags-list="tagsList"
+            @tabClick="tabClick"
+            @closeAll="closeAll"
+            @closeCru="closeCru"
+            @lrClose="lrClose"
+            v-if="layoutSetting.tag.value == '1'"
+          ></layout-tag>
+        </div>
+
+        <div class="layout-main plr-24 pb-24 pt-10" :style="`height: calc(100% - ${layoutSetting.tag.value == '1' ? '107px' : '68px'})`">
           <LayoutBreadcrumb class="mb-30" />
           <div class="layout-routeView" v-loading="routeView">
             <keep-alive>
@@ -59,8 +56,7 @@
         <!--                </el-backtop>-->
       </el-main>
     </el-container>
-    <!--        <layout-client class="layout-client w-250 overflow-h position-a" height="100%"-->
-    <!--        ></layout-client>-->
+    <!-- <layout-client class="layout-client w-250 overflow-h position-a" height="100%"></layout-client> -->
     <Dra
       :visible.sync="settingLayout"
       title="系统主题设置"
@@ -174,7 +170,6 @@ export default {
 
 .layout-elaside {
   transition: all 0.3s linear;
-  height: calc(100% - 30px);
 }
 
 .left-to-right-enter {
