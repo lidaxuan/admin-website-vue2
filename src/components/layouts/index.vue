@@ -72,7 +72,7 @@
 </template>
 <script>
 import utils from '@/utils';
-import Dra from '@/components/drawer/Dra.vue';
+// import Dra from '@/components/drawer/Dra.vue';
 import colorSetting from '@/utils/layoutColorSetting';
 
 const vueFiles = require.context('./src', false, /\.vue$/);
@@ -124,7 +124,7 @@ export default {
     LayoutHeader,
     // LayoutClient,
     LayoutSetting,
-    Dra,
+    // Dra,
     ...utils.readFile(vueFiles),
   },
   methods: {

@@ -8,14 +8,14 @@
     "children": [
       {
         "id": "0-1",
-        "icon": "",
+        "icon": "icon-wenzhangguanli",
         "name": "文章管理",
         "disabled": true,
         "pid": "1"
       },
       {
         "id": "0-2",
-        "icon": "",
+        "icon": "icon-changwenzhang-xinjianwenzhang",
         "path": "/creatArticle",
         "name": "新建文章",
         "pid": "1"

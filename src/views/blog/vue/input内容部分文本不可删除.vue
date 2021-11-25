@@ -6,10 +6,8 @@
 -->
 <template>
   <div class="">
-    <pre>
-      <code>
-      </code>
-    </pre>
+    <p>q去去去千万</p>
+    <pre><code class="JavaScript"><xmp>/ 图片上传 参数名 uploadImgName: { type: String, default: 'file', }, // vueProp: {</xmp></code></pre>
   </div>
 </template>
 
@@ -23,27 +21,23 @@ export default {
   props: {},
   data() {
     return {
-      content: ``
+      content: ``,
     };
   },
   computed: {},
   watch: {
-  // temObj: {
-  //   handler(newVal, oldVal) {
-  //   },
-  //   deep: true, // 深度
-  //   immediate: true, // 立即执行
-  // },
+    // temObj: {
+    //   handler(newVal, oldVal) {
+    //   },
+    //   deep: true, // 深度
+    //   immediate: true, // 立即执行
+    // },
   },
-  beforeCreate() {}, 
-  created() {
-    
-  },
-  beforeMount() {}, 
+  beforeCreate() {},
+  created() {},
+  beforeMount() {},
   mounted() {},
-  methods: {
-    
-  },
+  methods: {},
   beforeUpdate() {}, //生命周期 - 更新之前
   updated() {}, //生命周期 - 更新之后
   beforeDestroy() {}, //生命周期 - 销毁之前
@@ -53,5 +47,4 @@ export default {
 </script>
 <style lang='scss' scoped>
 //@import url(); 引入公共css类
-
 </style>

@@ -2,7 +2,7 @@
  * @Author: web.范庆龙
  * @Date: 2020-04-26 10:40:48
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-11-24 14:59:05
+ * @LastEditTime: 2021-11-25 14:05:49
  * @Description: file content
  */
 import Vue from 'vue';
@@ -72,9 +72,9 @@ router.beforeEach((to, from, next) => {
     }
 })
 router.afterEach((to) => {
-    if (to.meta.title) {
-        document.title = to.meta.title;
-    }
+    // if (to.meta.title) {
+    //     document.title = to.meta.title;
+    // }
     NProgress.done();// 结束Progress
 })
 

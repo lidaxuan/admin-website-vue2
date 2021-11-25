@@ -3,8 +3,8 @@
  * @Author: 范庆龙
  * @Date: 2021-09-03 14:24:34
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-11-15 16:29:54
- * @FilePath: /newUi/src/components/layouts/src/layoutHeader/LayoutHeaderRight.vue
+ * @LastEditTime: 2021-11-25 10:41:36
+ * @FilePath: /admin-website-vue2/src/components/layouts/src/layoutHeader/LayoutHeaderRight.vue
 -->
 <template>
   <div class="flex ai-center">
@@ -142,6 +142,8 @@ export default {
     },
     handleCommand(command) {
       if (command == '4') {
+        window.localStorage.clear();
+        window.sessionStorage.clear();
         this.$router.push('/signInPage');
       }
     },

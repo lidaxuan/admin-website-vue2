@@ -9,10 +9,10 @@ class Utils {
     goAnchor(selector) {
         var anchor = document.querySelector(selector);
         anchor.scrollIntoView(
-              {
-                  block: 'end',
-                  behavior: 'smooth'
-              }
+            {
+                block: 'end',
+                behavior: 'smooth'
+            }
         );
 
     }
@@ -20,7 +20,7 @@ class Utils {
     guid() {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
             var r = Math.random() * 16 | 0,
-                  v = c == 'x' ? r : (r & 0x3 | 0x8);
+                v = c == 'x' ? r : (r & 0x3 | 0x8);
             return v.toString(16);
         });
     }
@@ -70,29 +70,30 @@ class Utils {
         }
         return modules;
     }
-    addCssByLink(url){
-        var doc=document;
-        var link=doc.createElement("link");
+    addCssByLink(url) {
+        var doc = document;
+        var link = doc.createElement("link");
         link.setAttribute("rel", "stylesheet");
         link.setAttribute("type", "text/css");
         link.setAttribute("href", url);
 
         var heads = doc.getElementsByTagName("head");
-        if(heads.length)
+        if (heads.length)
             heads[0].appendChild(link);
         else
             doc.documentElement.appendChild(link);
     }
-    addJsByScript(url){
+    addJsByScript(url) {
         const s = document.createElement('script');
         s.type = 'module';
         s.src = url;
         document.body.appendChild(s)
     }
-    loadIconUrl(){
+    loadIconUrl() {
         Promise.all([
-            this.addJsByScript("//at.alicdn.com/t/font_2735677_mrkj6fh5qz.js"),
-            this.addCssByLink("//at.alicdn.com/t/font_2735677_mrkj6fh5qz.css")
+            // this.addJsByScript("//at.alicdn.com/t/font_2735677_mrkj6fh5qz.js"),
+            this.addCssByLink("//at.alicdn.com/t/font_2735677_39rh41bt7pw.css"), // BEACON基础库
+            this.addCssByLink("//at.alicdn.com/t/font_2964213_r0bdd0q5qa.css"), // website
         ])
     }
     // 读取文件  正则后缀
@@ -103,10 +104,10 @@ class Utils {
             const componentConfig = modulesFiles(name);
             // 将被注册的组件名字,对获取的文件名进行处理
             const componentName = name
-                  .replace(/^\.\/_/, '')
-                  .replace(/\.\w+$/, '')
-                  .split('./')
-                  .join('');
+                .replace(/^\.\/_/, '')
+                .replace(/\.\w+$/, '')
+                .split('./')
+                .join('');
             modules[componentName] = componentConfig.default || componentConfig;
         });
         return modules;

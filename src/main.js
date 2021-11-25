@@ -3,8 +3,8 @@
  * @Author: 范庆龙
  * @Date: 2021-08-13 11:43:45
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-11-15 16:23:42
- * @FilePath: /newUi/src/main.js
+ * @LastEditTime: 2021-11-25 10:19:47
+ * @FilePath: /admin-website-vue2/src/main.js
  */
 import Vue from 'vue'
 import App from './App.vue'
@@ -18,6 +18,7 @@ import './assets/base/reset/index.scss';
 import './assets/style/element-variables.scss'
 import './assets/base/common/layoutColor.scss'
 import IconClass from './components/icon/IconClass';
+import Dra from './components/drawer/Dra.vue';
 import utils from "@/utils";
 // Vue.use(ElWebBasic);
 Vue.use(ElementUI);
@@ -38,6 +39,7 @@ Vue.prototype.hasAuthority = function (authorities) {
     })
 }
 // icon组件挂载全局
+Vue.component('Dra', Dra)
 Vue.component('icon-class', IconClass)
 new Vue({
     router,
