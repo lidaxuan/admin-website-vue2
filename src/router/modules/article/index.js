@@ -11,7 +11,7 @@ export default [
       name: 'creatArticle',
       component: () => import(/* webpackChunkName: "componentA" */ '@/views/blog/creatArticle/index.vue'),
       meta: {
-          title: '访客标签',
+          title: '新建文章',
           authCode: 'admin',
           keepAlive: false //缓存组件
       }

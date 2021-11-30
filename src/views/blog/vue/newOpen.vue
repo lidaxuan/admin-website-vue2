@@ -1,28 +1,27 @@
 <!--
  * @Description: 
  * @Author: 李大玄
- * @Date: 2021-11-24 15:36:18
- * @FilePath: /admin-website-vue2/src/views/blog/vue/input内容部分文本不可删除.vue
+ * @Date: 2021-11-29 15:27:25
+ * @FilePath: /admin-website-vue2/src/views/blog/vue/newOpen.vue
 -->
 <template>
   <div class="">
-    <p>q去去去千万</p>
-    <pre><code class="JavaScript"><xmp>/ 图片上传 参数名 uploadImgName: { type: String, default: 'file', }, // vueProp: {</xmp></code></pre>
+    <h2>{{ activeName }}</h2>
+    <hr />
+    <component :is="getComponents()"></component>
   </div>
 </template>
 
 <script>
 //例如：import 《组件名称》 from '《组件路径》';
-
+import sourcePage from './index.vue';
 export default {
   name: '', // Pascal命名
-  mixins: [],
+  mixins: [sourcePage],
   components: {},
   props: {},
   data() {
-    return {
-      content: ``,
-    };
+    return {};
   },
   computed: {},
   watch: {
@@ -34,9 +33,14 @@ export default {
     // },
   },
   beforeCreate() {},
-  created() {},
+  created() {
+    this.activeName = this.$route.query.name;
+    document.title = this.activeName;
+  },
   beforeMount() {},
-  mounted() {},
+  mounted() {
+    this.setColor();
+  },
   methods: {},
   beforeUpdate() {}, //生命周期 - 更新之前
   updated() {}, //生命周期 - 更新之后

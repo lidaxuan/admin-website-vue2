@@ -4,13 +4,14 @@
       <el-aside class="position-r overflow-i layout-elaside" :width="isCollapseShow ? '65px' : '235px'">
         <div class="br-1 hmax layout-aside flex flex-column">
           <div class="h-68 layout-aside-box" width="100%">
-            <div :class="['layout-aside-boxIcon', 'h-66 flex ai-center', 'pl-15', isCollapse ? 'w-48' : 'w-219']">
+            <div :class="['layout-aside-boxIcon', 'h-66 flex ai-center ',  isCollapse ? 'w-63' : 'w-234']">
               <!-- <icon-class icon-class="icon-A-A1" font="28" color="var(--layoutBeacon)" />
               <div align="center" :class="['position-a mt-5', isCollapse ? '' : 'pl-12']" v-if="!isCollapse">
                 <div font-weight="600" class="w-95" font="18">BEACON</div>
                 <div font-weight="600" font="12" style="transform: scale(0.51); margin-top: -4px">EASYLIAO TECHNOLOGY</div>
               </div> -->
-              <img src="@/assets/img/logo.png" class="" style="width: 100%" alt="" />
+              <img v-show="!isCollapseShow" src="@/assets/img/logo.png" class="" style="width: 100%" alt="" />
+              <div v-show="isCollapseShow" style="color: var(--layoutTopMenuBtn)" class="site-name flex ai-center jc-center wmax">大玄</div>
             </div>
           </div>
           <LayoutSide class="overflow-y-a overflow-x-h layout-menu flex-1 wmax" :isCollapse="isCollapse" />
@@ -47,7 +48,7 @@
               </transition>
             </keep-alive>
             <transition name="left-to-right" mode="out-in" appear>
-              <router-view v-if="!$route.meta.keepAlive"></router-view>
+              <router-view :key="routerViewKey" v-if="!$route.meta.keepAlive"></router-view>
             </transition>
           </div>
         </div>
@@ -82,6 +83,7 @@ import LayoutSetting from './src/layoutSetting/index';
 import { mapGetters } from 'vuex';
 import layoutTag from '@/mixins/layoutTag';
 import LayoutTag from './src/LayoutTag';
+import uuid from 'uuid';
 
 export default {
   name: 'Layout',
@@ -91,18 +93,19 @@ export default {
   },
 
   watch: {
-    // "$route"(to) {
-    //     let tempArray = this.authCodeArr.map(item => {
-    //         return item.name;
-    //     })
-    //     let tempArray1 = this.authCodeArr.map(item => {
-    //         return item.authority;
-    //     })
-    //     // 路由权限控制  tempArray1.indexOf(to.meta.authCode)!=-1
-    //     if (tempArray.indexOf(this.userMsg.userId) == -1 && tempArray1.indexOf(to.meta.authCode) != -1) {
-    //         this.$router.push("./404");
-    //     }
-    // },
+    $route(to) {
+      // let tempArray = this.authCodeArr.map(item => {
+      //     return item.name;
+      // })
+      // let tempArray1 = this.authCodeArr.map(item => {
+      //     return item.authority;
+      // })
+      // // 路由权限控制  tempArray1.indexOf(to.meta.authCode)!=-1
+      // if (tempArray.indexOf(this.userMsg.userId) == -1 && tempArray1.indexOf(to.meta.authCode) != -1) {
+      //     this.$router.push("./404");
+      // }
+      this.routerViewKey = uuid();
+    },
     'layoutSetting.tag.value'(v) {
       if (v == 1) {
         this.$store.dispatch('setLayoutTag', '');
@@ -117,6 +120,7 @@ export default {
       settingLayout: false,
       styleObj: {},
       asideObj: {},
+      routerViewKey: uuid(),
     };
   },
   components: {
@@ -191,6 +195,12 @@ export default {
   position: absolute;
   z-index: 1;
   top: 68px;
+}
+
+.site-name {
+  font-family: cursive;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 @import '~@scss/home/layouts';

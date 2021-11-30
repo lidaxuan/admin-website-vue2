@@ -4,7 +4,6 @@
     "icon": "icon-A-A3",
     "name": "文章管理",
     "pid": "0",
-    
     "children": [
       {
         "id": "0-1",
@@ -32,6 +31,123 @@
             "icon": "",
             "name": "VUE",
             "pid": "2"
+          },
+          {
+            "id": "0-3-2",
+            "icon": "",
+            "path": "",
+            "name": "开发规范",
+            "pid": "2",
+            "children": [
+              {
+                "id": "0-3-2-1",
+                "icon": "",
+                "name": "Javascript",
+                "path": "/standard/javaScriptStandard",
+                "pid": "3"
+              },
+              {
+                "id": "0-3-2-2",
+                "icon": "",
+                "name": "css",
+                "path": "/standard/cssStandard",
+                "pid": "3"
+              },
+              {
+                "id": "0-3-2-3",
+                "icon": "",
+                "name": "Eslint",
+                "path": "/standard/eslintStandard",
+                "pid": "3"
+              },
+              {
+                "id": "0-3-2-4",
+                "icon": "",
+                "name": "项目结构",
+                "path": "/standard/项目结构",
+                "pid": "3"
+              },
+              {
+                "id": "0-3-2-5",
+                "icon": "",
+                "name": "git",
+                "path": "/standard/gitStandard",
+                "pid": "3"
+              }
+            ]
+          },
+          {
+            "id": "0-3-3",
+            "icon": "",
+            "path": "/demo",
+            "name": "demo实现",
+            "pid": "2",
+            "children": [
+              {
+                "id": "0-3-3-1",
+                "icon": "",
+                "name": "typescript",
+                "pid": "3",
+                "children": [
+                  {
+                    "id": "0-3-3-1-1",
+                    "icon": "",
+                    "name": "类型",
+                    "path": "/standard/javaScriptStandard",
+                    "pid": "4"
+                  },
+                  {
+                    "id": "0-3-3-1-2",
+                    "icon": "",
+                    "name": "接口",
+                    "path": "/standard/cssStandard",
+                    "pid": "4"
+                  },
+                  {
+                    "id": "0-3-3-1-3",
+                    "icon": "",
+                    "name": "类",
+                    "path": "/standard/eslintStandard",
+                    "pid": "4"
+                  },
+                  {
+                    "id": "0-3-3-1-4",
+                    "icon": "",
+                    "name": "泛型",
+                    "path": "/standard/项目结构",
+                    "pid": "4"
+                  }
+                ]
+              },
+              {
+                "id": "0-3-3-2",
+                "icon": "",
+                "name": "scss",
+                "path": "/demo/scss",
+                "pid": "3"
+              },
+              {
+                "id": "0-3-3-3",
+                "icon": "",
+                "name": "v-model实现",
+                "path": "/demo/model",
+                "pid": "3"
+              },
+              {
+                "id": "0-3-3-4",
+                "icon": "",
+                "name": "vue继承",
+                "path": "/demo/extend",
+                "pid": "3"
+              },
+              {
+                "id": "0-3-3-5",
+                "icon": "",
+                "name": "sync",
+                "path": "/demo/scss",
+                "pid": "3"
+              }
+            ]
           }
         ]
       }

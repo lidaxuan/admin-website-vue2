@@ -2,9 +2,9 @@
  * @version: v1.2.0
  * @Author: 范庆龙
  * @Date: 2021-08-19 11:22:43
- * @LastEditors: 范庆龙
- * @LastEditTime: 2021-08-19 17:07:02
- * @FilePath: \my-project\src\assets\base\reset\index.scss
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-11-29 14:31:18
+ * @FilePath: /admin-website-vue2/src/assets/base/reset/index.scss
  */
 @charset "utf-8";
 //清楚标签默认样式;
@@ -46,7 +46,8 @@
         border-spacing: 0;
     }
     a {
-        color: #7e8c8d;
+        // color: #7e8c8d;
+        color: #1989fa;
         text-decoration: none;
         -webkit-backface-visibility: hidden;
         cursor: pointer;

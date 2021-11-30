@@ -3,7 +3,7 @@
  * @Author: 范庆龙
  * @Date: 2021-08-13 11:43:45
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-11-25 10:19:47
+ * @LastEditTime: 2021-11-29 10:42:29
  * @FilePath: /admin-website-vue2/src/main.js
  */
 import Vue from 'vue'
@@ -20,6 +20,8 @@ import './assets/base/common/layoutColor.scss'
 import IconClass from './components/icon/IconClass';
 import Dra from './components/drawer/Dra.vue';
 import utils from "@/utils";
+import hljs from 'highlight.js';
+Vue.prototype.$hljs = hljs;
 // Vue.use(ElWebBasic);
 Vue.use(ElementUI);
 Vue.config.productionTip = false;

@@ -2,7 +2,7 @@
  * @Author: web.范庆龙
  * @Date: 2020-04-26 10:40:48
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-11-25 14:05:49
+ * @LastEditTime: 2021-11-30 16:57:28
  * @Description: file content
  */
 import Vue from 'vue';
@@ -28,8 +28,31 @@ const children = Object.values(utils.readFile(vueFiles)).flat();
 
 
 
+// const articlePages = [];
+// // 自动加载该目录下的所有文件
+// const files = require.context('../views/blog/vue/', true, /\.(md)$/);
+// files.keys().map((src) => {
+//     const match = src.match(/\/(.+)\./);
+//     if (match && match.length >= 1) {
+//         const moduleValue = files(src);
+//         if (moduleValue.default) {
+//             console.log(match[1].split('/')[0]);
+//             const name = match[1].split('/')[0];
+//             let obj = {
+//                 path: `/${name}`,
+//                 component: () => import(/* webpackChunkName: "componentA" */ `@/views/blog/vue/${name}/index.md`),
+//             }
+//             articlePages.push(obj);
+//         }
+//     }
+// });
+
 
 const routes = [
+    {
+        path: '/newOpenArticle',
+        component: () => import(/* webpackChunkName: "componentA" */ `@/views/blog/vue/newOpen.vue`),
+    }, // 文章
     ...overAll,
     {
         path: "/index",
@@ -44,28 +67,18 @@ const router = new VueRouter({
     routes,
     // base: process.env.VUE_APP_BASE_URL,
 })
-// router.beforeEach((to, from, next) => {
-//     // 开启进度条
-//     NProgress.start();
-//     if (to.path == "/login") {
-//         next();
-//     } else {
-//         if (store.state.user.token) {
-//
-//             next();
-//         } else {
-//             next({path: '/login', replace: true});
-//         }
-//     }
-// })
+
 router.beforeEach((to, from, next) => {
     // 开启进度条
+    console.log(to);
     NProgress.start();
     if (to.path == "/signInPage" || to.path == '/login') {
         next();
     } else {
         if (store.state.user.token) {
-            next();
+            next({
+
+            });
         } else {
             next({ path: '/login', replace: true });
         }

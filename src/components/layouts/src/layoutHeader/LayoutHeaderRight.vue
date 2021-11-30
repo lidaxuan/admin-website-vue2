@@ -3,7 +3,7 @@
  * @Author: 范庆龙
  * @Date: 2021-09-03 14:24:34
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-11-25 10:41:36
+ * @LastEditTime: 2021-11-30 11:41:31
  * @FilePath: /admin-website-vue2/src/components/layouts/src/layoutHeader/LayoutHeaderRight.vue
 -->
 <template>
@@ -26,19 +26,19 @@
     <icon-class class="mr-44 cursor-p" icon-class="icon-C-C13" @iconClick="settingFun" font="24" color="var(--layoutTopMenuCol)" />
 
     <el-button type="primary" size="mini" font="14" class="w-32 h-32 mr-12 btnName" circle>
-      {{ $route.path == '/oldLayout' || $route.path == '/newLayout' ? '雯' : userMsg.userId.charAt(0) }}
+      {{ $route.path == '/oldLayout' || $route.path == '/newLayout' ? '玄' : userMsg.userId.charAt(0) }}
     </el-button>
     <el-dropdown class="mr-14" trigger="click" @command="handleCommand">
       <span class="el-dropdown-link">
-        {{ $route.path == '/oldLayout' || $route.path == '/newLayout' ? '李乐雯' : userMsg.userId }} <i class="el-icon-arrow-down el-icon--right"></i>
+        {{ $route.path == '/oldLayout' || $route.path == '/newLayout' ? '李大玄' : userMsg.userId }} <i class="el-icon-arrow-down el-icon--right"></i>
       </span>
       <el-dropdown-menu slot="dropdown" class="p-0 popoverCard">
         <div class="w-232 pt-15">
           <div align="center" class="el-dropdown-name" font="16">
-            {{ $route.path == '/oldLayout' || $route.path == '/newLayout' ? '李乐雯' : userMsg.userId }}
+            {{ $route.path == '/oldLayout' || $route.path == '/newLayout' ? '李大玄' : userMsg.userId }}
           </div>
           <div align="center" class="ptb-5 el-dropdown-easyChat" font="12">
-            {{ $route.path == '/oldLayout' || $route.path == '/newLayout' ? '易聊科技 • 渠道销售顾问' : userMsg.sub }}
+            {{ $route.path == '/oldLayout' || $route.path == '/newLayout' ? '大玄网咖 • 工程师' : userMsg.sub }}
           </div>
         </div>
 

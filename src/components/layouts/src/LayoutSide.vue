@@ -89,6 +89,7 @@ export default {
       this.$store.dispatch('setDefaultActiveMenu', key);
       this.defaultOpeneds = dispatch;
       this.$store.dispatch('setLayoutTag', obj);
+      console.log(obj);
       this.$router.push(obj.path);
     },
     getLayout(value) {
